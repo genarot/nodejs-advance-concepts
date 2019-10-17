@@ -14,6 +14,7 @@ crypto.pbkdf2("a", "b", 100000, 512, "sha512", () => {
     console.log('3:', Date.now() - start);
 });
 
+//This function run in another different thread
 crypto.pbkdf2("a", "b", 100000, 512, "sha512", () => {
     console.log('4:', Date.now() - start);
 });

@@ -1,5 +1,6 @@
 const cluster = require('cluster');
 const morgan = require('morgan');
+const Worker = require('webworker-threads').Worker;
 
 // Im a child, Im going to act like a server
 // and do nothing else
@@ -10,9 +11,22 @@ const app = express();
 app.use(morgan('dev'));
 
 app.get('/', (req, res) => {
-    crypto.pbkdf2('a', 'b', 100000, 512, 'sha512', () => {
-        res.send('HI there');
+    const worker = new Worker(function() {
+        let counter = 0;
+        // 1e9 = 1,000,000,000
+        while (counter < 1e9) {
+            ++counter;
+        }
+        this.onmessage = function() {
+            postMessage(counter);
+        };
     });
+    worker.onmessage = function(myCounter) {
+        console.log('mycounter', myCounter)
+        res.send('Que nota soy un thread');
+    };
+
+    worker.postMessage();
 });
 app.get('/fast', (req, res) => {
     res.send('This was fast');
