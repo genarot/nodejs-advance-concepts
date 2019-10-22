@@ -12,7 +12,7 @@ beforeEach(async () => {
 });
 
 test('The header has the correct text', async done => {
-    await page.screenshot({ fullPage: true, path: './my-screen.png' });
+    // await page.screenshot({ fullPage: true, path: './my-screen.png' });
 
     const text = await page.getContentsOf('a.brand-logo');
 
