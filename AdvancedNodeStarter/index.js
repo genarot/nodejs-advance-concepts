@@ -11,7 +11,7 @@ require('./services/cache');
 require('./services/passport');
 
 mongoose.Promise = global.Promise;
-mongoose.connect(keys.mongoURI, { useMongoClient: true });
+mongoose.connect(keys.mongoURI, { useUnifiedTopology: true });
 
 const app = express();
 
