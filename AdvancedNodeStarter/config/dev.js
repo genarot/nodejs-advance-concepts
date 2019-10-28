@@ -5,5 +5,7 @@ module.exports = {
     mongoURI:
         'mongodb://admin:jose12@35.223.58.194:27017/blog_everyone?authSource=admin',
     cookieKey: '123123123',
-    redisURL: 'redis://localhost:6379'
+    redisURL: 'redis://localhost:6379',
+    accessKeyId: 'AKIA2VEUDFUPBSYERZOJ',
+    secretAccessKey: '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'
 };
