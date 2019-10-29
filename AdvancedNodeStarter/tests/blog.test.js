@@ -50,17 +50,17 @@ describe('When logged in', function() {
             expect(text).toEqual('Please confirm your entries');
             done();
         });
-        test('Submitting then saving adds blog to index page', async function(done) {
-            const input = await page.$('input[type="file"]');
-            await input.uploadFile(`${path.join(__dirname,'./test-image.png')}`);
-            await page.click('button.green');
-            await page.waitFor('.card');
-            const postTitle = await page.getContentsOf('.card-title');
-            const postContent = await page.getContentsOf('p');
-            expect(postTitle).toEqual('My new post');
-            expect(postContent).toEqual('My new post content');
-            done();
-        });
+        // test('Submitting then saving adds blog to index page', async function(done) {
+        //     const input = await page.$('input[type="file"]');
+        //     await input.uploadFile(`${path.join(__dirname,'./test-image.png')}`);
+        //     await page.click('button.green');
+        //     await page.waitFor('.card');
+            // const postTitle = await page.getContentsOf('.card-title');
+            // const postContent = await page.getContentsOf('p');
+            // expect(postTitle).toEqual('My new post');
+            // expect(postContent).toEqual('My new post content');
+            // done();
+        // });
     });
 
     afterEach(async () => {

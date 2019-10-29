@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-    - "9"
+    - "10.15.3"
 
 dist: trusty
 services:
@@ -14,10 +14,10 @@ cache:
         - node_modules
         - client/node_modules
 install:
-    - npm install
-    - npm run build
+    - yarn
+    - yarn run build
 
 script:
-    - nohup npm run start &
+    - nohup yarn run start &
     - sleep 5
-    - npm run test
+    - yarn test -- --watchAll=false
