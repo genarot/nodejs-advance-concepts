@@ -1,5 +1,5 @@
 const Page = require('./helpers/page');
-
+const path = require('path');
 let page;
 
 beforeEach(async () => {
@@ -51,6 +51,8 @@ describe('When logged in', function() {
             done();
         });
         test('Submitting then saving adds blog to index page', async function(done) {
+            const input = await page.$('input[type="file"]');
+            await input.uploadFile(`${path.join(__dirname,'./test-image.png')}`);
             await page.click('button.green');
             await page.waitFor('.card');
             const postTitle = await page.getContentsOf('.card-title');
