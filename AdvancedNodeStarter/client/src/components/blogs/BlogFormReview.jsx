@@ -50,10 +50,10 @@ class BlogFormReview extends Component {
         submitBlog(formValues, this.state.file, history);
     }
     onFileChange(event) {
-        if ( event.target.files[0] && event.target.files[0].type.match('image/'))
+        // if ( event.target.files[0] && event.target.files[0].type.match('image/'))
             this.setState({ file: event.target.files[0] });
-        else
-            this.setState({ file: null})
+        // else
+        //     this.setState({ file: null})
     }
 
     render() {
